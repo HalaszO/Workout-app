@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Experrimental login page" />
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+
+  <body>
+    <div class="container-main">
+      <div class="container-card">
+        <div class="wrap-login">
+          <h2 class="title-header">Start your workout <br />by planning it</h2>
+          <form class="login-form">
+            <div class="wrap-input" id="wrap-username">
+              <input class="login-input" id="username-input" value="Username" />
+            </div>
+            <div class="wrap-input" id="wrap-password">
+              <input class="login-input" id="password-input" value="Password" />
+            </div>
+            <div class="wrap-forgottenpwrd">
+              <a class="forgottenpwd-link">Forgotten password?</a>
+            </div>
+            <div class="wrap-submitlogin-btn">
+              <button type="submit">LOGIN</button>
+            </div>
+            <div class="wrap-register">
+              Don't have an account yet?<br />
+              <b><a class="register-link">Click here</a></b>
+            </div>
+          </form>
+          <div id="test"></div>
+        </div>
+
+        <img
+          class="loginpage-img"
+          src="loginpage-photo.jpeg"
+          alt="Login page photo"
+        />
+        
+      </div>
+      
+    </div>
+    <script>
+      
+        function displayWindowSize() {
+          const vw = Math.max(
+            document.documentElement.clientWidth || 0,
+            window.innerWidth || 0
+          );
+          const vh = Math.max(
+            document.documentElement.clientHeight || 0,
+            window.innerHeight || 0
+          );
+          document.getElementById(
+            "test"
+          ).innerHTML = `VWidth: ${vw}px \n VHeight: ${vh}px`;
+        }
+        window.onresize = displayWindowSize;
+        window.onload = displayWindowSize;
+      
+    </script>
+  </body>
+</html>

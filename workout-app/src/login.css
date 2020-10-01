@@ -1,0 +1,66 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.container-main {
+  background: radial-gradient(circle, #8efad4 0%, #adfadf 67%, #adfadb 100%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 100px 50px 100px;
+}
+
+.container-card {
+  background: linear-gradient(180deg, #fafaff 0%, #fffff4 55%, #deeee9 95%);
+  margin: 0px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  border-radius: 10px;
+  box-shadow: 2px 3px 8px 0px #393b3b;
+}
+.container-card .loginpage-img {
+  height: 557px;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.wrap-login {
+  width: 400px;
+  padding: 35px 35px 35px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title-header {
+  text-align: center;
+  margin: 0px auto 10px auto;
+  flex-basis: 20%;
+  font-size: 34px;
+}
+
+.login-form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=login.css.map */

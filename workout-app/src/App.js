@@ -12,8 +12,6 @@ class App extends React.Component {
   }
 }
 
-
-
 class ExerciseListContainer extends React.Component {
   render() {
     return(
@@ -43,13 +41,11 @@ class ExerciseListItem extends React.Component {
     const exerciseItem = this.props.exerciseItem;
     return(
       <li className='list-item' key={this.props.key}>
-        <div className='exercise-item'>
           {exerciseItem.name}, 
           {exerciseItem.sets} sets, 
           {exerciseItem.reps} reps, 
           {exerciseItem.breakTime} sec break
-        </div>
-        <DeleteItemBtn />
+          <DeleteItemBtn />
       </li>
     );
     
@@ -94,13 +90,5 @@ class AddItem extends React.Component {
     );
   }
 }
-
-export const mockData = [
-  {name: "Lying chest press", sets: 5, reps: 5, breakTime: 90},
-  {name: "Cable fly", sets: 4, reps: 8, breakTime: 60},
-  {name: "Chest dips", sets: 4, reps: 8, breakTime: 60},
-  {name: "Skullcrusher with dumbbells", sets: 5, reps: 6, breakTime: 90},
-  {name: "Tricep pushdowns", sets: 5, reps: 10, breakTime: 90}
-]
 
 export default App;

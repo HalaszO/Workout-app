@@ -1,6 +1,6 @@
 import ListItemComponent from "./ExerciseListItem";
 import { WorkoutName, ExerciseListBar } from "./ExerciseHeaders";
-import ExerciseItem from "../Models/ExerciseItem" ;
+import ExerciseItem from "../Models/ExerciseItem";
 import React from "react";
 
 export default class ExerciseWorkspace extends React.Component {
@@ -10,11 +10,13 @@ export default class ExerciseWorkspace extends React.Component {
         className="exercise-workspace workspace workspace-wrap"
         id="exercise-workspace"
       >
-        <WorkoutName isWorkspaceEditable={this.props.isWorkspaceEditable} />
-        <ExerciseListBar />
-        <ExerciseList
-          {...this.props}
+        <WorkoutName
+          isWorkspaceEditable={this.props.isWorkspaceEditable}
+          workoutName={this.props.workoutName}
+          updateWorkoutName={this.props.updateWorkoutName}
         />
+        <ExerciseListBar />
+        <ExerciseList {...this.props} />
         <ToggleEditButton
           isWorkspaceEditable={this.props.isWorkspaceEditable}
           toggleWorkspaceEdit={this.props.toggleWorkspaceEdit}
@@ -55,13 +57,10 @@ const NewExerciseButton = (props) => {
   const isWorkspaceEditable = props.isWorkspaceEditable;
   const handleClick = () => {
     props.addExerciseItem(new ExerciseItem());
-  }
+  };
   if (isWorkspaceEditable) {
     return (
-      <button
-        className="new-exercise-btn"
-        onClick={handleClick}
-      >
+      <button className="new-exercise-btn" onClick={handleClick}>
         +
       </button>
     );
@@ -97,4 +96,3 @@ class ToggleEditButton extends React.Component {
     return <div className="edit-btn-wrap">{renderButton()}</div>;
   }
 }
-

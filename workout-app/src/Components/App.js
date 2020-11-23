@@ -18,17 +18,49 @@ const mockData = [
 ];
 
 class App extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       isWorkspaceEditable: true,
       exerciseItems: mockData,
     };
+    
     this.toggleWorkspaceEdit = this.toggleWorkspaceEdit.bind(this);
+    this.deleteExerciseItem = this.deleteExerciseItem.bind(this);
+    this.addExerciseItem = this.addExerciseItem.bind(this);
+    this.updateExerciseItem = this.updateExerciseItem.bind(this);
   }
 
   toggleWorkspaceEdit(isEditable) {
     this.setState({ isWorkspaceEditable: isEditable });
+  }
+
+  updateExerciseItem(exerciseItem) {
+    const id = exerciseItem.id;
+    const indexInArray = this.state.exerciseItems.findIndex(
+      (exercise) => exercise.id === id
+    );
+    this.setState(function callback(state) {
+      const updatedItemList = [...state.exerciseItems];
+      updatedItemList[indexInArray] = exerciseItem;
+      return {
+        exerciseItems: updatedItemList,
+      };
+    });
+  }
+
+  addExerciseItem(exerciseItem) {
+    this.setState((state) => ({
+      exerciseItems: [...state.exerciseItems, exerciseItem],
+    }));
+  }
+
+  deleteExerciseItem(id) {
+    const exerciseItems = this.state.exerciseItems;
+    const filteredExercises = exerciseItems.filter(
+      (exercise) => exercise.id !== id
+    );
+    this.setState({ exerciseItems: filteredExercises });
   }
 
   render() {
@@ -41,6 +73,9 @@ class App extends React.Component {
             exerciseItems={this.state.exerciseItems}
             isWorkspaceEditable={this.state.isWorkspaceEditable}
             toggleWorkspaceEdit={this.toggleWorkspaceEdit}
+            deleteExerciseItem={this.deleteExerciseItem}
+            addExerciseItem={this.addExerciseItem}
+            updateExerciseItem={this.updateExerciseItem}
           />
         </div>
       </div>

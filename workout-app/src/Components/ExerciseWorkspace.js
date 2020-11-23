@@ -1,5 +1,6 @@
 import ListItemComponent from "./ExerciseListItem";
 import { WorkoutName, ExerciseListBar } from "./ExerciseHeaders";
+import ExerciseItem from "../Models/ExerciseItem" ;
 import React from "react";
 
 export default class ExerciseWorkspace extends React.Component {
@@ -12,8 +13,7 @@ export default class ExerciseWorkspace extends React.Component {
         <WorkoutName isWorkspaceEditable={this.props.isWorkspaceEditable} />
         <ExerciseListBar />
         <ExerciseList
-          exerciseItems={this.props.exerciseItems}
-          isWorkspaceEditable={this.props.isWorkspaceEditable}
+          {...this.props}
         />
         <ToggleEditButton
           isWorkspaceEditable={this.props.isWorkspaceEditable}
@@ -28,21 +28,16 @@ class ExerciseList extends React.Component {
   constructor(props) {
     super();
   }
-  /*toggleEditable = (editable) => {
-    this.setState({ isWorkspaceEditable: editable });
-  };
-  addNewExercise = () => {
-    this.setState({ exercises: this.state.exercises.push(new ExerciseItem()) });
-  };*/
   render() {
-    const isWorkspaceEditable = this.props.isWorkspaceEditable;
     const exerciseItems = this.props.exerciseItems;
     const listItemComponents = exerciseItems.map((exercise) => {
       return (
         <ListItemComponent
           key={exercise.id}
           exerciseContent={exercise}
-          isWorkspaceEditable={isWorkspaceEditable}
+          isWorkspaceEditable={this.props.isWorkspaceEditable}
+          deleteExerciseItem={this.props.deleteExerciseItem}
+          updateExerciseItem={this.props.updateExerciseItem}
         />
       );
     });
@@ -58,11 +53,14 @@ class ExerciseList extends React.Component {
 
 const NewExerciseButton = (props) => {
   const isWorkspaceEditable = props.isWorkspaceEditable;
+  const handleClick = () => {
+    props.addExerciseItem(new ExerciseItem());
+  }
   if (isWorkspaceEditable) {
     return (
       <button
         className="new-exercise-btn"
-        //onClick={() => this.addNewExercise()}
+        onClick={handleClick}
       >
         +
       </button>

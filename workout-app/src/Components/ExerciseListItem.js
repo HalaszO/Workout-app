@@ -3,7 +3,18 @@ import React from "react";
 export default class ListItemComponent extends React.Component {
   constructor(props) {
     super();
+    this.handleChange = this.handleChange.bind(this);
   }
+
+  handleChange(event) {
+    const value = event.target.value;
+    const updateExerciseItem = this.props.updateExerciseItem;
+    const updatedExercise = { ...this.props.exerciseContent };
+    const updatedField = event.target.getAttribute("inputTag");
+    updatedExercise[updatedField] = value;
+    updateExerciseItem(updatedExercise);
+  }
+
   render() {
     const id = this.props.exerciseContent.id;
     const name = this.props.exerciseContent.name;
@@ -13,7 +24,10 @@ export default class ListItemComponent extends React.Component {
     const readOnly = !this.props.isWorkspaceEditable;
 
     return (
-      <div className="exercise-list-item-wrap list-item" id={`exercise-list-item-${id}`}>
+      <div
+        className="exercise-list-item-wrap list-item"
+        id={`exercise-list-item-${id}`}
+      >
         <div className="exercise-input-div" id={`exercise-input-${id}`}>
           <input
             className="exercise-input-name exercise-input-text"
@@ -22,6 +36,8 @@ export default class ListItemComponent extends React.Component {
             placeholder="Exercise"
             value={name}
             readOnly={readOnly}
+            inputTag="name"
+            onChange={this.handleChange}
           ></input>
           <input
             className="exercise-input-sets exercise-input-numeric"
@@ -30,6 +46,8 @@ export default class ListItemComponent extends React.Component {
             placeholder="No. sets"
             value={sets}
             readOnly={readOnly}
+            inputTag="sets"
+            onChange={this.handleChange}
           ></input>
           <input
             className="exercise-input-reps exercise-input-numeric"
@@ -38,6 +56,8 @@ export default class ListItemComponent extends React.Component {
             placeholder="No. reps"
             value={reps}
             readOnly={readOnly}
+            inputTag="reps"
+            onChange={this.handleChange}
           ></input>
           <input
             className="exercise-input-break exercise-input-numeric"
@@ -46,10 +66,11 @@ export default class ListItemComponent extends React.Component {
             placeholder="Break"
             value={breakTime}
             readOnly={readOnly}
+            inputTag="breakTime"
+            onChange={this.handleChange}
           ></input>
 
           {DeleteExerciseBtn(this.props)}
-          
         </div>
       </div>
     );
@@ -58,11 +79,15 @@ export default class ListItemComponent extends React.Component {
 
 const DeleteExerciseBtn = (props) => {
   const id = props.exerciseContent.id;
+  const handleClick = () => {
+    props.deleteExerciseItem(id);
+  };
   if (props.isWorkspaceEditable) {
     return (
       <button
         className="delete-exercise-btn shown-when-editable"
         id={`delete-btn-${id}`}
+        onClick={handleClick}
       >
         x
       </button>

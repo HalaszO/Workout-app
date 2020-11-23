@@ -30,9 +30,15 @@ input {
   margin: 15px 0px 20px 0px;
 }
 
+$ex-input-text-width: 275px;
+$ex-input-num-width: 75px;
+$ex-input-margin-right: 15px;
+
 .exercise-list-bar {
   display: grid;
-  grid-template-columns: 290px 90px 90px auto;
+  grid-template-columns: ($ex-input-text-width + $ex-input-margin-right) (
+      $ex-input-num-width + $ex-input-margin-right
+    ) ($ex-input-num-width + $ex-input-margin-right) auto;
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 5px;
@@ -43,16 +49,16 @@ input {
 }
 
 .exercise-input-div > input {
-  margin-right: 15px;
+  margin-right: $ex-input-margin-right;
   font-size: 16px;
 }
 
 .exercise-input-text {
-  width: 275px;
+  width: $ex-input-text-width;
 }
 
 .exercise-input-numeric {
-  width: 75px;
+  width: $ex-input-num-width;
 }
 
 .delete-exercise-btn {
@@ -66,12 +72,13 @@ input {
   flex-direction: column;
   align-items: flex-start;
   margin-top: 50px;
-}
-.load-save-wrap > button {
-  margin: 5px;
-  width: 75px;
-  font-size: 18px;
-  font-weight: 500;
+
+  > button {
+    margin: 5px;
+    width: 75px;
+    font-size: 18px;
+    font-weight: 500;
+  }
 }
 
 .edit-btn {
@@ -82,22 +89,19 @@ input {
   .app {
     margin: 20px;
   }
-
   .workspace-wrap {
     margin-left: 30px;
   }
 }
+
 @media only screen and (max-width: 770px) {
   .app {
     display: flex;
     flex-wrap: wrap;
   }
-
   .content-wrap {
     display: flex;
     flex-direction: column-reverse;
     flex-wrap: wrap;
   }
 }
-
-/*# sourceMappingURL=App.css.map */

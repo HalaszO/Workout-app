@@ -1,0 +1,72 @@
+.app {
+  display: inline-block;
+  margin: 20px 20px 20px 200px;
+}
+
+.content-wrap {
+  display: inline-flex;
+}
+
+.main-header {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+  font-family: "Segoe UI", "Roboto";
+  margin-bottom: 25px;
+}
+
+.workspace-wrap {
+  margin-left: 80px;
+}
+
+input {
+  border: none;
+}
+
+.workout-name {
+  font-weight: 600;
+  font-size: 20px;
+  margin: 15px 0px 20px 0px;
+}
+
+.exercise-list-bar {
+  display: grid;
+  grid-template-columns: 275px 75px 75px 100px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.exercise-list-item-wrap {
+  margin-bottom: 10px;
+}
+
+.exercise-input-div > input {
+  margin-right: 25px;
+}
+
+.exercise-input-text {
+  width: 250px;
+}
+
+.exercise-input-numeric {
+  width: 50px;
+}
+
+.delete-exercise-btn {
+  margin-left: 10px;
+}
+
+.load-save-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+.load-save-wrap > button {
+  margin: 5px;
+}
+
+.edit-btn {
+  margin-top: 30px;
+}

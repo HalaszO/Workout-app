@@ -26,28 +26,28 @@ export class ExerciseListBar extends React.Component {
     return (
       <div className="exercise-list-bar bar workout-bar">
         <div
-          className="workout-bar workout-bar-elem exercise-table-name"
+          className="workout-bar-elem exercise-table-name"
           id="workout-bar-name"
         >
           Exercise name
         </div>
         <div
-          className="workout-bar workout-bar-elem exercise-table-sets"
+          className="workout-bar-elem exercise-table-sets"
           id="workout-bar-sets"
         >
           Sets
         </div>
         <div
-          className="workout-bar workout-bar-elem exercise-table-reps"
+          className="workout-bar-elem exercise-table-reps"
           id="workout-bar-reps"
         >
           Reps
         </div>
         <div
-          className="workout-bar workout-bar-elem exercise-table-break"
+          className="workout-bar-elem exercise-table-break"
           id="workout-bar-break"
         >
-          Break (in s)
+          Break (s)
         </div>
       </div>
     );

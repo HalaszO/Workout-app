@@ -11,6 +11,9 @@
 # vscode
 /.vscode
 
+# debug log
+./debug.log
+
 # production
 /build
 

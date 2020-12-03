@@ -1,6 +1,6 @@
 import ListItemComponent from "./ExerciseListItem";
 import { WorkoutName, ExerciseListBar } from "./ExerciseHeaders";
-import ExerciseItem from "../Models/ExerciseItem";
+import ExerciseItem from "../Models/exerciseItem";
 import React from "react";
 
 export default class ExerciseWorkspace extends React.Component {
